@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+    <table class="table middle" *ngIf="status">
+        <thead>
+            <tr class="center">
+                <th scope="col">Position</th>
+                <th scope="col" colspan="2">Team</th>
+                <th scope="col">Driver</th>
+                <th scope="col" colspan="2">Fastest Lap</th>
+                <th scope="col">Lap</th>
+                <th scope="col" colspan="2">Tyres</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pilot of status" [ngClass]="{'out': pilot.status > 3, 'human' : !pilot.is_bot }">
+                <td class="center">{{ pilot.position }} / 20</td>
+                <td class="{{ pilot.team | formatClass }}"></td>
+                <td class="left">{{ pilot.team }}</td>
+                <td class="padded center">{{ pilot.name }}</td>
+                <td class="left"><img *ngIf="pilot.is_fastest" id="fastest_lap" src="assets/img/fastest_lap.png"/></td>
+                <td [ngClass]="pilot.fastest_lap > 0 ? 'left' : 'center'">{{ pilot.fastest_lap | LapTime }}</td>
+                <td class="padded center">{{ pilot.lap }} / {{ pilot.total_lap }}</td>
+                <td><img class="tyre_img" src="assets/img/{{ pilot.tyre }}.png"/></td>
+                <td>{{ pilot.wear }}%</td>
+            </tr>
+        </tbody>
+    
+    </table>
+
+    <div class="middle no-stream" *ngIf="!status">
+        No stream
+    </div>
+
+</div>

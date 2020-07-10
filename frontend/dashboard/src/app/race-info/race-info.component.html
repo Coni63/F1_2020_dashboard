@@ -1,0 +1,31 @@
+<div class="container-fluid" *ngIf="status">
+    <div class="row">
+        <div class="col">
+            <h2>{{ status.track }}</h2>
+        </div>
+        <div class="col-6 text-center">
+            <h1>
+                {{ status.sessionDuration | TimeFormat }}
+            </h1>
+        </div>
+        <div class="col temperature text-right">
+            <blockquote class="blockquote">
+                <p class="mb-0">{{ status.trackTemperature }}°C</p>
+                <footer class="blockquote-footer">Track Temperature</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img class="icon-lg" *ngIf="status.weather != ''" src="assets/race-assets/{{status.weather}}.svg"/>
+        </div>
+        <div class="col-6">
+        </div>
+        <div class="col temperature text-right">
+            <blockquote class="blockquote">
+                <p class="mb-0">{{ status.airTemperature }}°C</p>
+                <footer class="blockquote-footer">Air Temperature</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
