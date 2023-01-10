@@ -9,7 +9,7 @@ Flask==1.1.2
 Flask-SocketIO==4.3.0
 idna==2.9
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 multidict==4.7.6
 python-engineio==3.12.1
